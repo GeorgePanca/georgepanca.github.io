@@ -35,7 +35,7 @@
 
                 </ul>
              </nav>
-                <div class="burger">
+                <div class="burger" aria-label="Open navigation menu">
                 <div class="line-1"></div>
                 <div class="line-2"></div>
                 <div class="line-3"></div> 
@@ -188,9 +188,15 @@
 
     <h4>Solflare Breakpoint 2025 Recap (CapCut Edit)</h4>
 
-    <video controls>
-        <source src="videos/solflare-breakpoint-2025.mp4" type="video/mp4">
-    </video>
+   <div class="video-wrapper">
+  <iframe
+    src="https://drive.google.com/file/d/1Ro_4d1OJCQbJ7IQ6Sy0M3QBw6wXbeM4U/preview"
+    title="Solflare Breakpoint 2025 Recap"
+    allow="autoplay"
+    allowfullscreen>
+  </iframe>
+</div>
+
 
     <p>
         This video presents a recap of Solflare is presence at Breakpoint 2025,
@@ -344,19 +350,29 @@
         <div class="contact main-container">
             <div class="contact-left">
                 <form class="contact-form" action="https://formspree.io/f/mbdlrkgn" method="POST">
-                    <div>
-                       <input type="text" name="name" placeholder="Name" required>
-                    </div>
-                    <div>
-                       <input type="email" name="email" placeholder="Email" required>
-                    </div>
-                    <div>
-                    <textarea name="message" placeholder="Message" cols="30" rows="10" required></textarea>
-                    </div>
-                    <div>
-                        <button class="btn-submit">Send Message</button>
-                    </div>
-                </form>
+                    <form class="contact-form" action="https://formspree.io/f/mbdlrkgn" method="POST">
+
+  <!-- Honeypot anti-spam -->
+  <input type="text" name="_gotcha" style="display:none">
+
+  <div>
+    <input type="text" name="name" placeholder="Name" required>
+  </div>
+
+  <div>
+    <input type="email" name="email" placeholder="Email" required>
+  </div>
+
+  <div>
+    <textarea name="message" placeholder="Message" cols="30" rows="10" required></textarea>
+  </div>
+
+  <div>
+    <button class="btn-submit">Send Message</button>
+  </div>
+
+</form>
+
             </div>
                 <div class="contact-right">
                     <!-- Contact item 1-->
@@ -388,10 +404,8 @@
                         <h4>Email</h4>
                         <p>fajardias31@gmail.com</p>
                     </div>
-                    </div>
-                </div>
-            </div>
-    </section>
+                 </div>
+     </section>
 
     <!-- End of Contact-->
 
