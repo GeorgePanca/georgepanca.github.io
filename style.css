@@ -173,14 +173,17 @@ nav ul li a {
     color: var(--primaryIconColor);
 }
 
-.hero-right img {
-    width: 90%;
-}
-
 .hero-right {
     display: flex;
     justify-content: center;
 }
+ .hero-right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
 
 /* Services Section */
 
@@ -243,13 +246,7 @@ nav ul li a {
     object-fit: cover;
 }
 
-.portofolio img {
-    height: 370px;
-    width: 370px;
-    margin: 0;
-    margin-top: 1;
-    
-}
+
 
 .portofolio-info {
     padding: 2rem 1.5rem;
@@ -302,12 +299,6 @@ nav ul li a {
 #skills {
     padding: var(--sectionPadding);
     background: var(--seconddaryBackgroundColor);
-}
-
-.skills-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 3rem;
 }
 
 .education {
@@ -435,10 +426,13 @@ nav ul li a {
 /* Footer Section */
 
 footer {
-    padding: 4rem 0;
-    background: var(--seconddaryBackgroundColor);
+    padding: 2rem 0;
     text-align: center;
+    border-top: 1px solid var(--borderColor);
+    font-size: 0.9rem;
+    background: var(--seconddaryBackgroundColor);
 }
+
 
 .footer-icons {
     margin-bottom: 1rem;
@@ -493,11 +487,6 @@ footer {
 
 #portofolio .portofolio-info p {
     line-height: 1.8;
-}
-
-#portofolio .portofolio video {
-    max-width: 700px;
-    aspect-ratio: 16 / 9;
 }
 
 /* === ENHANCED BACKGROUND (RICH BUT CALM) === */
@@ -582,13 +571,6 @@ body::after {
     line-height: 1.8;
 }
 
-footer {
-    padding: 2rem 0;
-    text-align: center;
-    border-top: 1px solid var(--borderColor);
-    font-size: 0.9rem;
-}
-
 /* Hentikan garis dan hapus ikon di item education terakhir */
 .education:last-child .line {
     height: 0;
@@ -619,14 +601,13 @@ footer {
 }
 
 /* pastikan pembungkusnya center */
-.pre-tittle {
-    text-align: center;
-}
 
 .pre-tittle {
     display: flex;
     justify-content: center;
+    text-align: center;
 }
+
 
 .section-label {
     transform: translateX(-1px);
@@ -654,4 +635,166 @@ footer {
 #portofolio video,
 #portofolio img {
     margin-top: 0;
+}
+
+
+.portfolio-secondary {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+/* ===== FIX FINAL VIDEO DRIVE (ANTI FULL LAYAR) ===== */
+.video-wrapper {
+  width: 100%;
+  max-width: 800px;   /* SAMA DENGAN LEBAR IMAGE PORTOFOLIO */
+  height: 450px;      /* 16:9 dari 800px */
+  margin: 0 auto;
+  border-radius: var(--itemBorderRadius);
+  overflow: hidden;
+  background: #000;
+}
+
+.video-wrapper iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  position: static;
+}
+
+#portofolio .portofolio img {
+  width: 100%;
+  max-width: 800px;
+  height: 450px;
+  object-fit: cover;
+  margin: 0 auto;
+  display: block;
+  border-radius: var(--itemBorderRadius);
+}
+
+/* ===============================
+   FINAL MOBILE FIX
+   =============================== */
+@media screen and (max-width: 825px) {
+
+  /* NAV */
+  .burger {
+    display: block;
+  }
+
+  nav {
+    position: fixed;
+    right: 0;
+    top: 0;
+    height: 100vh;
+    flex-direction: column;
+    background: var(--primaryBackgroundColor);
+    border-left: 1px solid var(--borderColor);
+    z-index: 9;
+    transform: translateX(100%);
+    transition: 0.4s ease-in-out;
+  }
+
+  nav ul {
+    height: 100vh;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  /* HERO */
+  #hero {
+    grid-template-columns: 1fr;
+    height: fit-content;
+  }
+
+  .hero-right {
+    order: -1;
+  }
+
+ .hero-right img {
+    width: 100%;
+    max-width: 480px;
+    height: auto;
+}
+  /* SKILLS */
+  .skills-grid {
+    grid-template-columns: 1fr;
+  }
+
+}
+
+/* ======================================
+         HERO IMAGE FINAL OVERRIDE 
+   ====================================== */
+
+/* PASTIKAN HERO TIDAK MEMOTONG ISI */
+#hero {
+  overflow: visible !important;
+  align-items: center;
+}
+
+/* WRAPPER KANAN HERO */
+.hero-right {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  overflow: visible !important;
+}
+
+/* GAMBAR HERO DESKTOP */
+.hero-right img {
+  width: auto !important;
+  max-width: 520px !important;
+  height: auto !important;
+  max-height: 80vh !important;
+  object-fit: contain !important;
+}
+
+/* MOBILE FIX TETAP AMAN */
+@media screen and (max-width: 825px) {
+  .hero-right img {
+    max-width: 320px !important;
+    max-height: none !important;
+  }
+}
+
+/* ======================================
+   PORTFOLIO MEDIA FINAL FIX (ANTI POTONG)
+   ====================================== */
+
+/* Wrapper portfolio media */
+.portfolio-media,
+.portofolio img {
+  width: 100% !important;
+  height: auto !important;
+  max-height: none !important;
+  object-fit: contain !important;
+  display: block;
+}
+
+/* Samakan tinggi visual portfolio 1 & 2 */
+.portofolio {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Wrapper khusus video & image agar sejajar */
+.video-wrapper,
+.portofolio img {
+  max-width: 800px;
+  margin: 0 auto 1.5rem;
+}
+
+/* Cegah container memotong */
+.portofolio {
+  overflow: visible !important;
+}
+
+/* Mobile tetap rapi */
+@media screen and (max-width: 825px) {
+  .video-wrapper,
+  .portofolio img {
+    max-width: 100%;
+  }
 }
